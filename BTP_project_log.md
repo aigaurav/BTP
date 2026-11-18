@@ -84,12 +84,23 @@ Point creation TUI: `/surface/point-surface p_corner 0.02 0.02 0`.
 - Decision: stop at about 500 iterations once the monitors are flat. Proof needed: Δ < 0.1 % between iterations
   300 and 500, mass imbalance < 0.1 %, optional +100 iterations showing no change.
 
-| Quantity | Iteration 300 | Iteration 500 | Change % |
-|---|---|---|---|
-| cd | _todo_ | _todo_ | |
-| v_corner | _todo_ | _todo_ | |
-| v_wake | _todo_ | _todo_ | |
-| Mass flow in / out | | _todo_ | |
+Run finished at iteration 501, about 7.7 s per iteration on 16 processes.
+
+| Quantity | It. 300 | It. 500 | Change 300→500 | Min / max over 300–501 | Mean ± half-range | Verdict |
+|---|---|---|---|---|---|---|
+| cd | 0.061645 | 0.061644 | 0.002 % | 0.061618 / 0.061678 | **0.06165 ± 0.00003 (±0.05 %)** | converged |
+| v_corner [m/s] | 28.435 | 28.166 | −0.9 % (phase of oscillation) | 28.029 / 28.536 | **28.28 ± 0.25 (±0.9 %)** | bounded oscillation, no drift |
+| v_wake [m/s] | 25.515 | 25.546 | +0.1 % | 25.471 / 25.693 | **25.58 ± 0.11 (±0.4 %)** | bounded oscillation, no drift |
+| Mass flow in / out | | _todo_ | | | | |
+
+- Residuals over 300–501: continuity 3.2–3.8e-3, velocities ≈ 5e-7 / 2e-6, k ≈ 1.5–1.8e-3, ω ≈ 3e-4.
+  They oscillate with no trend, so they have plateaued.
+- v_corner and v_wake oscillate with a period of about 20–40 iterations and constant amplitude. Possible causes are weak
+  unsteadiness of the corner flow or the steady-RANS pseudo-time iteration. Report the mean ± half-range.
+- **Iterative uncertainty:** ±0.9 % for v_corner and ±0.4 % for v_wake. In the grid study, differences between meshes
+  smaller than this cannot be resolved, so use the mean over the last 200 iterations for every mesh.
+- Monitor files (`cd-rfile.out`, `v_corner-rfile.out`, `v_wake-rfile.out`) are in
+  `\\netapp2...\Downloads\14\bbttpp_14_files\dp0\FFF\Fluent\` (project `bbttpp_14.wbpj`, stored on the college network drive in Downloads).
 
 Stage 1 checks still to do: y⁺ on model (average and maximum), maximum velocity, maximum pressure on model (~794 Pa),
 mass balance.
