@@ -1,6 +1,6 @@
 """Grid Convergence Index (Celik et al. 2008, J. Fluids Eng. 130, 078001).
 
-Mesh 1 = fine, 2 = medium, 3 = coarse. Values are means over the last iterations.
+Mesh 1 = fine, 2 = medium, 3 = coarse. Values are means over the last 200 iterations (from the .out files).
 Run: python3 gci.py
 """
 import math
@@ -11,9 +11,9 @@ h = {k: (V / n) ** (1 / 3) for k, n in N.items()}
 
 data = {
     # name: (phi1 fine, phi2 medium, phi3 coarse, iterative half-range on fine)
-    "cd": (0.06165, 0.062529, 0.06372, 0.00003),
-    "v_corner [m/s]": (28.28, 29.544, 33.05, 0.25),
-    "v_wake [m/s]": (25.58, 27.161, 28.49, 0.11),
+    "cd": (0.0616489, 0.0625285, 0.0637306, 0.00003),
+    "v_corner [m/s]": (28.3042, 29.5457, 33.1952, 0.254),
+    "v_wake [m/s]": (25.6003, 27.1622, 28.5689, 0.111),
 }
 
 r21, r32 = h[2] / h[1], h[3] / h[2]

@@ -343,3 +343,20 @@ Skin friction (Cf = τw / ½ρU∞², ×10³), floor and plate inside faces:
 - Conclusion: the junction flow is a skew-induced (Prandtl's first kind) corner-vortex pair that originates at the blunt
   leading-edge junction (stagnation and separation) and decays downstream. SST cannot produce stress-induced (second
   kind) corner flow → Stage 4 test.
+
+### Convergence histories (`convergence_plots.py`, data `data/convergence/`, figure `figures/convergence_monitors.png`)
+- The fine-mesh reference values were corrected at iteration **178** (not ~162 as estimated earlier). cd before that is
+  rescaled by 1/(36² × 0.1472) = 1/190.77; this gives a continuous history.
+- Exact means over the last 200 iterations (± half-range):
+
+| Mesh | cd | v_corner (m/s) | v_wake (m/s) |
+|---|---|---|---|
+| Coarse | 0.063731 ± 0.05 % | 33.195 ± 0.60 % | 28.569 ± 0.38 % |
+| Medium | 0.062529 ± 0.03 % | 29.546 ± 0.07 % | 27.162 ± 0.04 % |
+| Fine | 0.061649 ± 0.05 % | 28.304 ± 0.90 % | 25.600 ± 0.43 % |
+
+- GCI rerun with these means (`gci.py`): cd monotonic, p = 1.25, φ_ext = 0.0594, e_a21 = 1.43 %, **GCI_fine = 4.6 %**;
+  v_corner monotonic, p = 4.2, φ_ext = 27.69, e_a21 = 4.39 %, **GCI_fine = 2.7 %**; v_wake R = 1.11 (no asymptotic
+  convergence), e_a21 = 6.1 %. These replace the earlier GCI table values.
+- Observation: the medium mesh is the steadiest. The fine and coarse meshes show small bounded oscillations at the corner
+  points (0.4–0.9 %).
