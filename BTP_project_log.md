@@ -172,3 +172,17 @@ Naming rule: `mesh_quantity_location.png`, 1920 × 1080, white background.
    7. Junction physics, Steps A–E
    8. Qualitative comparison with Nakayama & Rahai
    9. Limitations and future work (XFLR5 NACA 0010 wing–body junction)
+
+## 7. Stage 2: grid study meshes
+
+Same geometry, inflation (0.01 mm, 25 layers, 1.2), global size 50 mm, BCs and solver settings. Only face sizing and BOI change.
+Effective ratio r = (N_fine / N_coarser)^(1/3), target ≈ 1.3 (Celik et al. 2008).
+
+| Mesh | Face sizing | BOI | Nodes | Elements | Max skew | Min OQ | r vs finer |
+|---|---|---|---|---|---|---|---|
+| Fine (A) | 5 mm | 12 mm | 848,165 | 2,528,284 | 0.800 | 0.0062 | n/a |
+| Medium, first try (rejected) | 6.5 mm | 15.6 mm | 500,663 | 1,448,353 | 0.799 | 0.0069 | 1.20 (too small) |
+| **Medium (B)** | **7.3 mm** | **17.5 mm** | 403,363 | **1,149,794** | n/a | 0.0070 | **1.300** |
+| Coarse (C), planned | ~10.6 mm | ~25.5 mm | | target ~0.52 M | | | target 1.3 |
+
+Note: element count scales roughly as h^-2.1 here (not h^-3), because the inflation prisms (fixed layer count) are a large share of the mesh.
