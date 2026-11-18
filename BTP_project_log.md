@@ -230,3 +230,22 @@ Interpretation:
   cross-plane) on all three saved solutions. That needs no re-run.
 - Conclusion for the report: Stage 3 uses the fine mesh. Global quantities are grid-independent within about 5 %. Local corner
   values carry about 3 % uncertainty. The corner wake is the most mesh-sensitive region.
+
+## 8. Stage 3: junction physics (fine mesh)
+
+Lines (z = 0, mid-length), created with `/surface/line-surface name x0 y0 z0 x1 y1 z1`:
+floor_far (0.25, 0.01→0.06), floor_near (0.02, 0.01→0.06), plate_far (0.01→0.06, 0.25), plate_near (0.01→0.06, 0.02),
+bisector (0.01, 0.01) → (0.05, 0.05).
+
+### Step A: boundary-layer profiles (qualitative, from the plots; exact δ99 to follow from the .xy files)
+- Outer (edge) velocity ≈ 37.3–37.5 m/s, about 3.5 % above U∞ because of displacement by the L.
+- floor_far: δ99 ≈ 20–25 mm. plate_far: δ99 ≈ 25–27 mm. Both are much thicker than the flat-plate estimate (≈ 6 mm at
+  mid-length) → likely because of the blunt 10 mm leading edge (separation at the sharp front edges, then a thick reattached BL).
+- floor_near (10 mm from the plate) and plate_near (10 mm above the floor) never reach the edge velocity (≈ 33–34 m/s far
+  out), because they run inside the other wall's BL: the two boundary layers overlap near the corner.
+- **Bulge:** plate_near peaks at ≈ 35.3 m/s about 20 mm from the plate, then drops to ≈ 33 m/s. At 10 mm above the floor the
+  velocity is ≈ 33–35 m/s near the plate vs ≈ 25 m/s far from it → high-momentum fluid is carried toward the corner along
+  the diagonal (corner secondary flow). Confirm with the cross-plane isovels and vectors (Step D).
+- bisector (the plot's x-axis is position = x + y): reaches the edge velocity at x + y ≈ 0.065, i.e. about 32 mm from the
+  corner along the diagonal. For two independent BLs with no secondary flow, expect √2·δ ≈ 33–38 mm. Slightly less →
+  consistent with the fluid being pushed into the corner.
