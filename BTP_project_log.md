@@ -360,3 +360,15 @@ Skin friction (Cf = τw / ½ρU∞², ×10³), floor and plate inside faces:
   convergence), e_a21 = 6.1 %. These replace the earlier GCI table values.
 - Observation: the medium mesh is the steadiest. The fine and coarse meshes show small bounded oscillations at the corner
   points (0.4–0.9 %).
+
+## 9. Decision: Stage 4 skipped
+Stage 4 (SST corner-flow correction / RSM) was skipped by the student's choice (time). Justification for the report and viva:
+- SST k-ω is the standard RANS model for wall-bounded flows with separation; y⁺ < 1 resolves the sublayer. It captures the
+  dominant physics here: BL growth, LE separation and reattachment (~70 mm), the skew-induced (Prandtl first-kind)
+  corner-vortex pair generated at the blunt-LE junction, and its effect on Cf.
+- Known limitation: an isotropic eddy-viscosity model cannot produce stress-induced (second-kind) secondary flow, which is
+  typically ~1–3 % of the main velocity. Our cross-flow is ~10 % of U∞ near the LE (first kind dominates) and ~1 % at
+  mid-length and downstream → the downstream corner details carry model uncertainty.
+- Numerical uncertainty (GCI: cd 4.6 %, v_corner 2.7 %) and modelling uncertainty are separate; state both.
+- Future work: SST corner-flow correction (one checkbox, restart from the fine solution) or Stress-BSL RSM; Step C pathlines
+  and Step E wake lines (also skipped).
