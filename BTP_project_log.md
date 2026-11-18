@@ -291,3 +291,13 @@ bisector (0.01, 0.01) → (0.05, 0.05).
     rolls into a streamwise vortex (leg) that trails downstream. Check with planes at z = +0.2 (near the LE) and z = −0.2.
   - Standard SST cannot produce stress-induced corner secondary flow (Prandtl's 2nd kind) → Stage 4 (corner flow
     correction / RSM) is the natural test.
+
+### Step B/C/D cross-plane pictures (saved in C:\Users\am1230752\BTP_images, 2–3 per plane; choose for the report later)
+Planes: plane_zp20 (z = +0.2), plane_zp10 (+0.1), plane_z0 (0), plane_zm20 (−0.2). ω_z ±300, vectors In Plane, Z component off,
+scale 30 (plus z0 at scale 60). Saved view `corner_zoom` (about 3 × 3 cm at the inside corner).
+- z = +0.2: inside the LE separation bubble → strong (saturated) streaky ω_z on all walls; in-plane flow is a strong outward
+  displacement away from the L (≥ 2× the z = 0 level) that hides the corner vortex. Corner: + patch in the corner, − band up the plate.
+- z = 0: weak corner pair (±100 s⁻¹), circulation cell on the floor side (down 2–4 cm from the plate, toward the plate along
+  the floor, up along the plate).
+- z = −0.2: the inside-corner vortex has nearly vanished; the free-edge (floor tip) pair persists → the junction vortex decays
+  downstream as the thickening turbulent BLs diffuse it.
