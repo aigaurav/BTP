@@ -82,14 +82,14 @@ print(f"bisector: Ue {ue_b:.2f}, 99% reached at s = {s99*1e3:.1f} mm from corner
       f"{np.sqrt(2)*res['plate_far'][1]*1e3:.1f} mm)")
 
 # ---------------- figure ----------------
-plt.rcParams.update({"font.family": "DejaVu Sans", "font.size": 10,
+plt.rcParams.update({"font.family": "DejaVu Sans", "font.size": 7.5,
                      "axes.edgecolor": MUTED, "axes.labelcolor": INK,
                      "xtick.color": MUTED, "ytick.color": MUTED})
-fig, axes = plt.subplots(1, 3, figsize=(13, 4.6), dpi=200, sharey=False)
+fig, axes = plt.subplots(1, 3, figsize=(7.6, 2.9), dpi=200, sharey=False)
 
 
 def style(ax, title, xlabel):
-    ax.set_title(title, loc="left", color=INK, fontsize=11)
+    ax.set_title(title, loc="left", color=INK, fontsize=8)
     ax.set_xlabel("Velocity magnitude u (m/s)")
     ax.set_ylabel(xlabel)
     ax.grid(color=GRID, lw=0.6)
@@ -111,18 +111,18 @@ for ax, far, near, title, ylab, far_lbl, near_lbl in (
     dd = np.linspace(0, d99, 100)
     ax.plot(ue * (dd / d99) ** (1 / 7), dd * 1e3, ls="--", lw=1.2, color=MUTED,
             label="1/7 power law")
-    ax.plot(uf, (pf - WALL) * 1e3, color=FAR, lw=2, label=f"Far: {far_lbl}")
-    ax.plot(un, (pn - WALL) * 1e3, color=NEAR, lw=2, label=f"Near: {near_lbl}")
+    ax.plot(uf, (pf - WALL) * 1e3, color=FAR, lw=1.4, label=f"Far: {far_lbl}")
+    ax.plot(un, (pn - WALL) * 1e3, color=NEAR, lw=1.4, label=f"Near: {near_lbl}")
     ax.axhline(d99 * 1e3, color=FAR, lw=0.8, ls=":")
-    ax.text(1, d99 * 1e3 + 0.8, f"δ99 (far) = {d99*1e3:.1f} mm", color=INK, fontsize=9)
+    ax.text(1, d99 * 1e3 + 0.8, f"δ99 (far) = {d99*1e3:.1f} mm", color=INK, fontsize=6.5)
     ax.set_ylim(0, 50)
-    ax.legend(frameon=False, loc="upper left", fontsize=9, bbox_to_anchor=(0, 0.93))
+    ax.legend(frameon=False, loc="upper left", fontsize=6.5, bbox_to_anchor=(0, 0.93))
 
 style(axes[2], "(c) Corner bisector (45° diagonal)", "Distance from corner along diagonal (mm)")
 order = np.argsort(s)
-axes[2].plot(u[order], s[order] * 1e3, color=FAR, lw=2)
+axes[2].plot(u[order], s[order] * 1e3, color=FAR, lw=1.4)
 axes[2].axhline(s99 * 1e3, color=FAR, lw=0.8, ls=":")
-axes[2].text(1, s99 * 1e3 + 1, f"99 % of edge velocity at {s99*1e3:.0f} mm", color=INK, fontsize=9)
+axes[2].text(1, s99 * 1e3 + 1, f"99 % of edge velocity at {s99*1e3:.0f} mm", color=INK, fontsize=6.5)
 axes[2].set_ylim(0, 60)
 
 fig.suptitle("Step A: boundary layers far from vs near the wall–plate junction "

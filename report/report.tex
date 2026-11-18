@@ -1,6 +1,8 @@
 % End-semester B.Tech project report (IITD Applied Mechanics template, iitdamthes class)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \documentclass[12pt]{iitdamthes}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
 \usepackage{natbib}
 \usepackage{graphicx}
 \usepackage{amsmath}
@@ -134,7 +136,7 @@ BOI size by about 1.45 (Table~\ref{tab:gci}).
 
 \begin{figure}[t]
 \centering
-\includegraphics[width=\textwidth]{geometry_domain.png}
+\includegraphics[width=0.9\textwidth]{geometry_domain.png}
 \caption{Geometry, domain, refinement region (BOI), cross-planes and monitor points.}
 \label{fig:geom}
 \end{figure}
@@ -232,7 +234,7 @@ which points to a secondary flow.
 
 \begin{figure}[t]
 \centering
-\includegraphics[width=\textwidth]{stepA_profiles.png}
+\includegraphics[width=0.92\textwidth]{stepA_profiles.png}
 \caption{Velocity profiles at mid-length, far from (240~mm) and near (10~mm) the junction, and along
 the corner bisector.}
 \label{fig:bl}
@@ -255,8 +257,8 @@ secondary flow of the first kind.
 \begin{figure}[t]
 \centering
 \includegraphics[width=\textwidth]{stepB_wz_planes.png}
-\caption{Streamwise vorticity in the inside corner at four distances behind the LE, with the
-circulation of its positive and negative parts.}
+\caption{Streamwise vorticity in the inside corner at $z=+0.20, +0.10, 0, -0.20$~m (30, 130, 230 and
+430~mm behind the LE), with the circulation of its positive and negative parts ($\times10^{-3}$~m$^2$/s).}
 \label{fig:wz}
 \end{figure}
 
@@ -274,8 +276,8 @@ the trailing edge.
 \begin{figure}[t]
 \centering
 \includegraphics[width=\textwidth]{stepD_isovels_vectors.png}
-\caption{Isovels and cross-flow vectors in the inside corner (reference arrow above each panel; the
-$z=+0.20$ panel uses a scale about seven times larger).}
+\caption{Isovels (black, m/s) and cross-flow vectors in the inside corner at the same four stations
+(reference arrow above each panel; the $z=+0.20$~m panel uses a scale about seven times larger).}
 \label{fig:sec}
 \end{figure}
 
@@ -289,7 +291,7 @@ boundary layer recovers from the separation.
 
 \begin{figure}[t]
 \centering
-\includegraphics[width=\textwidth]{stepE_cf.png}
+\includegraphics[width=0.92\textwidth]{stepE_cf.png}
 \caption{(a) Skin friction on the inside face of the floor, with reversed wall shear marked;
 (b) $C_f$ against distance from the other wall at three stations.}
 \label{fig:cf}
