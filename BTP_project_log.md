@@ -382,3 +382,18 @@ Stage 4 (SST corner-flow correction / RSM) was skipped by the student's choice (
 → Corner Cf is 30–50 % lower; the downwash band is up to +30 % higher near the front, and this fades downstream. **This supersedes the earlier "−30 to −55 % / +15 to +50 %" numbers.**
 Separation bubble on the floor (reversed wall shear): reattachment 40–50 mm behind the LE within 30 mm of the plate, vs
 70–77 mm far from it → the bubble is shorter near the junction.
+
+## 10. Status at end of session (18-11-2026)
+- Chat session: https://claude.ai/code/session_01LBX8cFrBzMiXoZ8KVkkDWW (can be opened from any device on the same account).
+- In the repo: all uploaded data (`data/`), analysis scripts (`*.py`), figures (`figures/`), the report (`report/`,
+  including `BTP_final_report_overleaf.zip`), and all 110 screenshots shared in the chat (`chat_screenshots/`,
+  numbered in chat order: 1–20 geometry/meshing, ~21–60 setup and fine run, ~61–80 medium/coarse, ~81–107 Stage 3 Fluent
+  plots, 108 LE iso-surface, 110 first Overleaf render).
+- NOT in the repo: the Ansys project (`bbttpp_14.wbpj` + `bbttpp_14_files`, several GB). The plan is to archive it
+  (Workbench File → Archive → .wbpz incl. results) and put it on Google Drive. **Add the Drive link here.**
+- Fluent pictures (local, college computer): C:\Users\am1230752\BTP_images\ → copy them to Drive as well.
+- Report: main body = 10 pages (checked with the stand-in class). To do: compile with the real iitdamthes.cls on Overleaf
+  and check the length; fill in "Contribution of Authors"; check the AI disclosure; further edits as needed; extended
+  abstract (format not yet known).
+- Skipped (future work): Step C pathlines, Step E wake lines, Stage 4 (SST-CFC/RSM).
+- To resume in a new session: "Read BTP_project_log.md and report/report.tex on branch claude/brave-turing-2k4h23 first."
