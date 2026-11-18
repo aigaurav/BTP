@@ -183,7 +183,7 @@ Effective ratio r = (N_fine / N_coarser)^(1/3), target ≈ 1.3 (Celik et al. 200
 | Fine (A) | 5 mm | 12 mm | 848,165 | 2,528,284 | 0.800 | 0.0062 | n/a |
 | Medium, first try (rejected) | 6.5 mm | 15.6 mm | 500,663 | 1,448,353 | 0.799 | 0.0069 | 1.20 (too small) |
 | **Medium (B)** | **7.3 mm** | **17.5 mm** | 403,363 | **1,149,794** | n/a | 0.0070 | **1.300** |
-| Coarse (C), planned | ~10.6 mm | ~25.5 mm | | target ~0.52 M | | | target 1.3 |
+| **Coarse (C)** | **10.6 mm** | **25.5 mm** | 184,203 | **528,896** | 0.796 | 0.0047 | **1.296** |
 
 Note: element count scales roughly as h^-2.1 here (not h^-3), because the inflation prisms (fixed layer count) are a large share of the mesh.
 
