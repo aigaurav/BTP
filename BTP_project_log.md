@@ -301,3 +301,45 @@ scale 30 (plus z0 at scale 60). Saved view `corner_zoom` (about 3 × 3 cm at the
   the floor, up along the plate).
 - z = −0.2: the inside-corner vortex has nearly vanished; the free-edge (floor tip) pair persists → the junction vortex decays
   downstream as the thickening turbulent BLs diffuse it.
+
+### Stage 3 figures from data (`stage3_figures.py`, data `data/stage3/fine_planes_wall.zip` = fine_planes.csv + fine_wall.csv)
+Figures: `figures/stepB_wz_planes.png`, `figures/stepB_wx_wy_z0.png`, `figures/stepD_isovels_vectors.png`, `figures/stepE_cf.png`.
+
+Corner-vortex strength (window 0–60 mm from both walls, excluding the 2 mm near-wall skew layer):
+
+| z (m) | Γ+ (×10⁻³ m²/s) | Γ− (×10⁻³ m²/s) | max abs(ω_z) (1/s) | max cross-flow (m/s) |
+|---|---|---|---|---|
+| +0.20 | 160 | −145 | 1680 | 3.5 |
+| +0.10 | 53 | −29 | 293 | 0.60 |
+| 0 | 29 | −19 | 123 | 0.35 |
+| −0.20 | 18 | −14 | 51 | 0.59 |
+
+→ The corner circulation decays by about 9× from just behind the LE to just before the TE.
+
+Secondary-flow direction (numbers from the interpolated planes):
+- z = +0.1 and 0: within 3 mm of each wall the cross-flow points TOWARD the corner (floor: vx ≈ −0.1 to −0.33 m/s; plate:
+  vy ≈ −0.2 to −0.46 m/s). Along the bisector it points OUT of the corner (+0.07 to +0.28 m/s at 10–40 mm).
+  → A symmetric pair of counter-rotating streamwise vortices: + (anticlockwise looking downstream) on the plate side,
+  − (clockwise) on the floor side. The floor-side cell has the sense of a horseshoe-vortex leg (toward the body along
+  the floor, up along the body).
+- z = −0.2: the whole cross-flow points toward the corner and walls (0.1–0.5 m/s): the flow converges toward the L near the TE.
+- **Correction to Step A:** the high-momentum fluid is NOT carried in along the bisector. It is swept down onto each wall
+  about 15–30 mm from the corner (the downwash side of each cell). This thins the BL there (the 99 % isovel reaches
+  27 mm along the diagonal) and raises Cf. Low-momentum fluid collects in the very corner and is ejected along the bisector.
+
+Skin friction (Cf = τw / ½ρU∞², ×10³), floor and plate inside faces:
+
+| z | Corner, 0–4 mm | Peak (location) | Far, 140–250 mm |
+|---|---|---|---|
+| +0.10 | 1.1–1.3 | 2.7–3.0 at 17–19 mm | 1.6–1.8 |
+| 0 | 1.9–2.0 | 2.8–3.0 at 19–48 mm | 2.2–2.4 |
+| −0.20 | 2.1 | 3.3 at 22–38 mm | 2.9 |
+
+- The corner itself has 30–55 % LOWER Cf than the far field (slow fluid collected there). About 15–30 mm from the corner,
+  Cf is 15–50 % HIGHER than far (the downwash of the corner vortices).
+- Floor map: reversed wall shear (LE separation bubble) from the LE (z = 0.23) to about z = 0.16 → reattachment about
+  70 mm (≈ 7 plate thicknesses) behind the blunt LE. The bubble is shorter close to the corner. Cf rises downstream as
+  the BL recovers.
+- Conclusion: the junction flow is a skew-induced (Prandtl's first kind) corner-vortex pair that originates at the blunt
+  leading-edge junction (stagnation and separation) and decays downstream. SST cannot produce stress-induced (second
+  kind) corner flow → Stage 4 test.
