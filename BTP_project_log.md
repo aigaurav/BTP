@@ -201,3 +201,4 @@ Note: element count scales roughly as h^-2.1 here (not h^-3), because the inflat
 - The corner point values change 4–6 % between medium and fine, much more than the iteration noise. The corner region is
   the hardest to resolve, because the points sit at the edge of the ~10 mm boundary layer where the gradients are steep.
   Wait for the coarse mesh and GCI before concluding.
+- Medium checks: y⁺ on model average 0.414, maximum 0.920. Mass flow 13.23 in / −13.23 out, net −3.86e-6 kg/s (0.00003 %).
