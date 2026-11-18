@@ -12,7 +12,11 @@ import io
 import zipfile
 import numpy as np
 import pandas as pd
+import os
 import matplotlib
+if os.environ.get("NO_TITLE"):
+    import matplotlib.figure
+    matplotlib.figure.Figure.suptitle = lambda self, *a, **k: None  # report version: caption replaces title
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 from matplotlib.colors import LinearSegmentedColormap, TwoSlopeNorm

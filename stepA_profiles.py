@@ -7,7 +7,11 @@ Run: python3 stepA_profiles.py
 """
 import re
 import numpy as np
+import os
 import matplotlib
+if os.environ.get("NO_TITLE"):
+    import matplotlib.figure
+    matplotlib.figure.Figure.suptitle = lambda self, *a, **k: None  # report version: caption replaces title
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 

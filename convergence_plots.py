@@ -7,7 +7,11 @@ Note  : on the fine mesh, iterations 1-177 were computed with default reference 
         1 / (36^2 x 0.1472) = 1/190.77 so the whole history uses the correct reference.
 """
 import numpy as np
+import os
 import matplotlib
+if os.environ.get("NO_TITLE"):
+    import matplotlib.figure
+    matplotlib.figure.Figure.suptitle = lambda self, *a, **k: None  # report version: caption replaces title
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 

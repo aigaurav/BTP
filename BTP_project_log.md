@@ -372,3 +372,13 @@ Stage 4 (SST corner-flow correction / RSM) was skipped by the student's choice (
 - Numerical uncertainty (GCI: cd 4.6 %, v_corner 2.7 %) and modelling uncertainty are separate; state both.
 - Future work: SST corner-flow correction (one checkbox, restart from the fine solution) or Stress-BSL RSM; Step C pathlines
   and Step E wake lines (also skipped).
+
+### Cf, refined comparison (reference band 60–150 mm from the corner wall; corner = 0–4 mm; downwash band = 15–30 mm)
+| z | floor: corner / band / far (×10³) | plate: corner / band / far |
+|---|---|---|
+| +0.1 | 1.05 (−51 %) / 2.86 (+32 %) / 2.16 | 1.19 (−45 %) / 2.44 (+13 %) / 2.16 |
+| 0 | ≈1.9 (binned) / 2.92 (+12 %) / 2.60 | ≈2.0 / 2.65 (0 %) / 2.66 |
+| −0.2 | 2.06 (−33 %) / 3.29 (+8 %) / 3.06 | 2.14 (−31 %) / 3.14 (+2 %) / 3.09 |
+→ Corner Cf is 30–50 % lower; the downwash band is up to +30 % higher near the front, and this fades downstream. **This supersedes the earlier "−30 to −55 % / +15 to +50 %" numbers.**
+Separation bubble on the floor (reversed wall shear): reattachment 40–50 mm behind the LE within 30 mm of the plate, vs
+70–77 mm far from it → the bubble is shorter near the junction.
