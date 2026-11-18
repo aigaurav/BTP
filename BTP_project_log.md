@@ -128,11 +128,14 @@ Leading-edge peaks: located with iso-surfaces iso_v42 (velocity 42 m/s) and iso_
 
 ## 4a. Figures saved (for the report)
 
-Folder: `\\netapp2.iitd.ernet.in\homes\am\btech\am1230752\Windows\Downloads\14\bbttpp_14_files\dp0\FFF\Fluent\`
+Folder: **`C:\Users\am1230752\BTP_images\`** (local disk). Fluent's Save Picture fails on the `\\netapp2...` network path
+("error opening PNG file"), so always give the full local path. Copy the folder to Google Drive or a pen drive at the end of
+every session, because local profile folders on college computers may be wiped at logout.
+Naming rule: `mesh_quantity_location.png`, 1920 × 1080, white background.
 
 | File | Content | Report section |
 |---|---|---|
-| FFF.png (rename to `fine_LE_iso_p819_v42.png`) | Front view of the L with iso_p819 + iso_v42 (leading-edge stagnation and edge acceleration) | Stage 1 checks / Step C |
+| `fine_LE_iso_p819_v42.png` | Front view of the L with iso_p819 + iso_v42 (leading-edge stagnation and edge acceleration) | Stage 1 checks / Step C |
 
 ## 5. Decisions and justifications (for the report and viva)
 
