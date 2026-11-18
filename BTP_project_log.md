@@ -91,7 +91,17 @@ Run finished at iteration 501, about 7.7 s per iteration on 16 processes.
 | cd | 0.061645 | 0.061644 | 0.002 % | 0.061618 / 0.061678 | **0.06165 ± 0.00003 (±0.05 %)** | converged |
 | v_corner [m/s] | 28.435 | 28.166 | −0.9 % (phase of oscillation) | 28.029 / 28.536 | **28.28 ± 0.25 (±0.9 %)** | bounded oscillation, no drift |
 | v_wake [m/s] | 25.515 | 25.546 | +0.1 % | 25.471 / 25.693 | **25.58 ± 0.11 (±0.4 %)** | bounded oscillation, no drift |
-| Mass flow in / out | | _todo_ | | | | |
+| Mass flow in / out [kg/s] | | 13.23 / −13.22998 | net 2.15e-5 kg/s (0.00016 %) | | | conserved |
+
+Stage 1 checks (iteration 501):
+
+| Check | Result | Verdict |
+|---|---|---|
+| Inlet mass flow | 13.23 kg/s (= 1.225 × 36 × 0.6 × 0.5, matches) | ✓ |
+| Mass imbalance | 2.15e-5 kg/s = 0.00016 % | ✓ |
+| y⁺ on model | area-weighted avg 0.42, facet max 0.93 | ✓ y⁺ < 1 everywhere |
+| Max velocity (domain) | 66.27 m/s = 1.84 U∞ | ⚠ investigate location (sharp 10 mm leading-edge corners or poor cells at x ≈ 0.318?) |
+| Max static pressure on model | 868.6 Pa vs ½ρU² = 793.8 Pa | ⚠ check against inlet total pressure (inlet static > 0 because outlet is the 0 Pa reference) |
 
 - Residuals over 300–501: continuity 3.2–3.8e-3, velocities ≈ 5e-7 / 2e-6, k ≈ 1.5–1.8e-3, ω ≈ 3e-4.
   They oscillate with no trend, so they have plateaued.
