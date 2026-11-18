@@ -249,3 +249,23 @@ bisector (0.01, 0.01) → (0.05, 0.05).
 - bisector (the plot's x-axis is position = x + y): reaches the edge velocity at x + y ≈ 0.065, i.e. about 32 mm from the
   corner along the diagonal. For two independent BLs with no secondary flow, expect √2·δ ≈ 33–38 mm. Slightly less →
   consistent with the fluid being pushed into the corner.
+
+**Step A, exact values** (`stepA_profiles.py`, data in `data/stage3/`, figure `figures/stepA_profiles.png`):
+
+| Line | Edge u (m/s) | δ99 (mm) | δ* (mm) | θ (mm) | H = δ*/θ |
+|---|---|---|---|---|---|
+| floor_far | 37.35 | 25.6 | 6.12 | 3.69 | 1.66 |
+| plate_far | 37.47 | 26.0 | 6.34 | 3.86 | 1.64 |
+| floor_near (10 mm from plate) | max 34.52 at 23 mm, 33.2 at 50 mm | n/a (no plateau) | | | |
+| plate_near (10 mm above floor) | max 35.27 at 26 mm, 33.1 at 50 mm | n/a | | | |
+| bisector | 37.54 | 99 % reached 27.3 mm from the corner along the diagonal | | | |
+
+- Floor and plate BLs are almost identical (δ99 ≈ 26 mm). H ≈ 1.65 is above the equilibrium flat-plate value (≈ 1.3–1.4),
+  so the BL is still recovering from the separation at the blunt 10 mm leading edge. This also explains why δ99 ≈ 26 mm
+  is much more than the flat-plate estimate (≈ 6 mm). The 1/7 law fits only the outer part.
+- At 10 mm from the wall, u = 28.4 m/s near the corner vs 26.0–26.7 m/s far from it (+6–9 %). Below about 13 mm the
+  near-corner profiles are fuller (more momentum near the wall). Above that they stay below the edge velocity because
+  they run inside the other wall's BL.
+- Bisector: 99 % edge velocity at 27 mm from the corner vs √2·δ99 ≈ 36 mm for two simply overlapping BLs → fast fluid
+  reaches about 25 % closer into the corner than simple superposition predicts. This is evidence of corner secondary flow
+  carrying high-momentum fluid along the diagonal (confirm in Step D).
