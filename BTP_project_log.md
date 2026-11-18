@@ -269,3 +269,25 @@ bisector (0.01, 0.01) → (0.05, 0.05).
 - Bisector: 99 % edge velocity at 27 mm from the corner vs √2·δ99 ≈ 36 mm for two simply overlapping BLs → fast fluid
   reaches about 25 % closer into the corner than simple superposition predicts. This is evidence of corner secondary flow
   carrying high-momentum fluid along the diagonal (confirm in Step D).
+
+### Step B: vorticity on plane_z0 (z = 0) and first secondary-flow vectors
+- Plane range: ω_x −1.89e5 / +2.06e5, ω_y −1.91e5 / +1.85e5, ω_z −1.9e4 / +2.0e4 s⁻¹ (wall values; u_τ²/ν ≈ 1.5e5 ✓).
+  Plot ranges used: ω_x, ω_y ±3000; ω_z ±300 (±1000 too coarse).
+- ω_y: + (red) on the inner plate face, − (blue) on the outer face, as predicted (ω_y ≈ −∂w/∂x with flow in −z). The band is
+  strongest a few cm above the floor and fades into the corner: the vortex lines bend from the plate (ω_y) toward the floor (ω_x).
+- ω_z full plane: the strongest streamwise vorticity is in equal and opposite pairs at the FREE EDGES (plate tip, floor tip)
+  and around the OUTSIDE convex corner (≥ ±300). Inside (junction) corner: weak pair, ≈ +100 s⁻¹ along the plate and
+  ≈ −100 s⁻¹ about 1–3 cm above the floor → a counter-rotating corner pair from vortex-line tilting (∇·ω = 0).
+- In-plane vectors (In Plane, Z component off, scale 60, about 3 × 3 cm zoom):
+  - Outside corner: strong cross-flow wrapping around the convex corner.
+  - Along both walls away from the corner: small outward arrows = displacement of the growing BLs (~0.5 m/s).
+  - **Inside corner:** a circulation cell on the floor side of the corner. Fluid descends toward the floor about 2–4 cm from
+    the plate, moves along the floor TOWARD the plate, and rises up along the plate face close to it. This is consistent
+    with the ω_z < 0 patch above the floor.
+  - Effect on momentum: the downwash brings high-momentum fluid toward the floor 2–4 cm from the plate, which explains
+    Step A (fuller near-corner profiles; bisector reaches the edge velocity at 27 mm instead of ~36 mm). The upwash along the
+    plate lifts low-momentum fluid off the corner.
+  - Likely origin: the junction stagnation at the inside corner of the blunt front face (Stage 1 iso_p819 blob), which
+    rolls into a streamwise vortex (leg) that trails downstream. Check with planes at z = +0.2 (near the LE) and z = −0.2.
+  - Standard SST cannot produce stress-induced corner secondary flow (Prandtl's 2nd kind) → Stage 4 (corner flow
+    correction / RSM) is the natural test.
