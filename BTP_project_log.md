@@ -186,3 +186,18 @@ Effective ratio r = (N_fine / N_coarser)^(1/3), target ≈ 1.3 (Celik et al. 200
 | Coarse (C), planned | ~10.6 mm | ~25.5 mm | | target ~0.52 M | | | target 1.3 |
 
 Note: element count scales roughly as h^-2.1 here (not h^-3), because the inflation prisms (fixed layer count) are a large share of the mesh.
+
+### Medium mesh results (B, 1.15 M, iterations 485–500)
+
+| Quantity | Medium | Fine | Medium vs fine |
+|---|---|---|---|
+| cd | 0.06253 (±0.00001) | 0.06165 | +1.4 % |
+| v_corner [m/s] | 29.54 (±0.01, flat) | 28.28 ± 0.25 | +4.5 % |
+| v_wake [m/s] | 27.16 (flat) | 25.58 ± 0.11 | +6.2 % |
+| Residuals | continuity 2.6e-4, velocities ~1e-7/3e-7, k 2.5e-4, ω 1.3e-4 | | |
+
+- The medium mesh converges to a steady state with no oscillation. The fine mesh shows a ±0.9 % oscillation at the corner,
+  so the finer mesh starts to resolve slight unsteadiness that the coarser mesh damps numerically.
+- The corner point values change 4–6 % between medium and fine, much more than the iteration noise. The corner region is
+  the hardest to resolve, because the points sit at the edge of the ~10 mm boundary layer where the gradients are steep.
+  Wait for the coarse mesh and GCI before concluding.
