@@ -202,3 +202,31 @@ Note: element count scales roughly as h^-2.1 here (not h^-3), because the inflat
   the hardest to resolve, because the points sit at the edge of the ~10 mm boundary layer where the gradients are steep.
   Wait for the coarse mesh and GCI before concluding.
 - Medium checks: y⁺ on model average 0.414, maximum 0.920. Mass flow 13.23 in / −13.23 out, net −3.86e-6 kg/s (0.00003 %).
+
+### Coarse mesh results (C, 0.53 M, iterations 480–500)
+
+cd 0.06372 (±0.00002), v_corner 33.05 m/s (±0.03, shifted from ~33.4 to ~33.05 near iteration 390), v_wake 28.49 m/s (slow ±0.1 oscillation).
+y⁺ on model: average 0.386, maximum 0.766. Mass: 13.23 in / −13.23 out, net −1.47e-5 kg/s (0.0001 %).
+
+### GCI (Celik et al. 2008), calculated with `gci.py`
+
+h = (V/N)^(1/3): h1 = 6.18 mm, h2 = 8.04 mm, h3 = 10.41 mm; r21 = 1.300, r32 = 1.295.
+
+| Quantity | Coarse | Medium | Fine | R = ε21/ε32 | Type | p | φ_ext | e_a21 (fine vs medium) | GCI_fine |
+|---|---|---|---|---|---|---|---|---|---|
+| cd | 0.06372 | 0.06253 | 0.06165 | 0.74 | monotonic | 1.22 | 0.0593 | **1.43 %** | **4.7 %** |
+| v_corner [m/s] | 33.05 | 29.54 | 28.28 | 0.36 | monotonic | 3.97 | 27.59 | 4.47 % | **3.0 %** |
+| v_wake [m/s] | 28.49 | 27.16 | 25.58 | 1.19 | **divergent** | n/a | n/a | 6.18 % | not defined |
+
+Interpretation:
+- cd: medium→fine change 1.43 % (< 2 % target), monotonic convergence. GCI_fine 4.7 % → cd = 0.0617 ± 0.0029.
+  The apparent order of 1.22 is below the formal 2nd order, typical for tet/prism meshes and sharp edges.
+- v_corner: monotonic. GCI_fine 3.0 % → 28.3 ± 0.9 m/s; extrapolated value 27.6 m/s. The apparent order of 3.97 is above
+  the formal order, so the GCI should be treated with caution (Celik's note on p much greater than the formal order).
+  The fine→medium change (4.5 %) is larger than the 2 % target, so the corner needs the fine mesh.
+- v_wake (z = −0.35, near the downstream end of the BOI): differences do not shrink (R > 1), so this location is not in the
+  asymptotic range. The fine mesh also starts to resolve slight unsteadiness there. Report the spread (6 %) and use the
+  fine mesh. Option: evaluate a more robust wake measure (area-averaged velocity deficit over the corner region on a
+  cross-plane) on all three saved solutions. That needs no re-run.
+- Conclusion for the report: Stage 3 uses the fine mesh. Global quantities are grid-independent within about 5 %. Local corner
+  values carry about 3 % uncertainty. The corner wake is the most mesh-sensitive region.
