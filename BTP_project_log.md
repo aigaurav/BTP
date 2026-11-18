@@ -115,6 +115,25 @@ Stage 1 checks (iteration 501):
 Stage 1 checks still to do: y⁺ on model (average and maximum), maximum velocity, maximum pressure on model (~794 Pa),
 mass balance.
 
+Leading-edge peaks: located with iso-surfaces iso_v42 (velocity 42 m/s) and iso_p819 (static pressure 819 Pa).
+- Node-averaged maxima: velocity 44.6 m/s (1.24 U∞), static pressure 836.9 Pa vs inlet total pressure 818.8 Pa
+  (+2 %, a normal 2nd-order overshoot at a sharp stagnation point). Node minimum pressure −915 Pa (suction peak at the sharp edges).
+- Inlet: static pressure 25.0 Pa, total pressure 818.8 Pa (area-weighted average).
+- iso_p819 sits on the blunt 10 mm front face; the **largest stagnation blob is at the inside corner of the front
+  face** (fluid blocked by both plates), which is the start of the junction flow (Step C).
+- iso_v42 forms thin sheets just outside the sharp front edges on both sides of each plate: acceleration around the
+  sharp corners, followed by a small separation bubble.
+- Single-cell spikes (66.3 m/s, 868.6 Pa) are sharp-edge singularities. They are not at the poor-quality cells and
+  do not affect cd or the monitors. **Stage 1 complete.**
+
+## 4a. Figures saved (for the report)
+
+Folder: `\\netapp2.iitd.ernet.in\homes\am\btech\am1230752\Windows\Downloads\14\bbttpp_14_files\dp0\FFF\Fluent\`
+
+| File | Content | Report section |
+|---|---|---|
+| FFF.png (rename to `fine_LE_iso_p819_v42.png`) | Front view of the L with iso_p819 + iso_v42 (leading-edge stagnation and edge acceleration) | Stage 1 checks / Step C |
+
 ## 5. Decisions and justifications (for the report and viva)
 
 - Geometry kept as the free-standing L (two plates). Both boundary layers start at the same leading edge, so there
