@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>BTP Final Report</title>
+<style>
+@page { size: A4; margin: 0; }
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; background: #fff; }
+body { font-family: "Liberation Serif", "FreeSerif", "Times New Roman", serif; font-size: 12pt; color: #000; line-height: 1.42; }
+.page { width: 210mm; height: 297mm; padding: 24mm 25mm 22mm 25mm; position: relative; overflow: hidden; page-break-after: always; break-after: page; }
+.page:last-child { page-break-after: auto; break-after: auto; }
+.content { height: 246mm; overflow: hidden; }
+.pno { position: absolute; bottom: 12mm; left: 0; right: 0; text-align: center; font-size: 11pt; }
+.rh { position: absolute; top: 12mm; left: 25mm; right: 25mm; display: flex; justify-content: space-between; font-weight: bold; font-size: 10pt; border-bottom: 0.6pt solid #000; padding-bottom: 2pt; }
+.rh + .content { margin-top: 0; }
+p { margin: 0 0 9pt 0; text-align: justify; hyphens: auto; }
+h1.ch { font-size: 17pt; margin: 18mm 0 0 0; }
+h1.ct { font-size: 17pt; margin: 6mm 0 9mm 0; }
+h1.fm { font-size: 16pt; margin: 6mm 0 9mm 0; }
+h2 { font-size: 13.5pt; margin: 10pt 0 7pt 0; }
+.title { text-align: center; }
+.title h1 { font-size: 17pt; margin: 20mm 0 0 0; line-height: 1.35; }
+.title p { text-align: center; margin: 0; }
+figure { margin: 6pt 0 8pt 0; }
+figure img { width: 100%; display: block; }
+figcaption, .tcap { font-size: 10pt; line-height: 1.3; text-align: justify; margin-top: 4pt; }
+.note { font-size: 10pt; line-height: 1.32; text-align: justify; }
+table.t { width: 100%; border-collapse: collapse; font-size: 10.5pt; margin: 6pt 0 2pt 0; }
+table.t th, table.t td { text-align: left; padding: 4pt 6pt 4pt 0; border-bottom: 0.4pt solid #bbb; vertical-align: top; }
+table.t thead th { border-top: 1pt solid #000; border-bottom: 0.7pt solid #000; font-weight: normal; }
+table.t tbody tr:last-child td { border-bottom: 1pt solid #000; }
+.toc p { text-align: left; margin: 0 0 9pt 0; }
+.toc .sub { padding-left: 0; }
+.eq { display: flex; justify-content: center; align-items: center; margin: 8pt 0 10pt 0; position: relative; }
+.eq .n { position: absolute; right: 0; }
+.eq .body { text-align: center; line-height: 1.6; }
+ol.concl { padding-left: 0; list-style: none; margin: 0; }
+ol.concl li { margin-bottom: 9pt; text-align: justify; }
+.ref p { text-align: left; padding-left: 0; margin-bottom: 11pt; }
+.sig { margin-top: 30mm; line-height: 1.5; }
+.box { display: inline-block; width: 9pt; height: 9pt; border: 0.8pt solid #000; margin-right: 6pt; vertical-align: -1pt; }
+.vi { font-style: italic; }
+</style></head><body>
+
+<!-- ============ TITLE ============ -->
+<div class="page"><div class="content title">
+<h1>TURBULENT FLOW BEHIND A FLAT PLATE<br>MOUNTED NORMAL TO THE WALL</h1>
+<p style="margin-top:20mm">An End Semester Project Report<br>Submitted in partial fulfilment of the<br>requirements for the Degree of<br>Bachelor of Technology in Engineering and Computational Mechanics</p>
+<p style="margin-top:20mm">by</p>
+<p style="margin-top:8mm"><b>Ankit Kumar Modi &amp; Gaurav Waghmare</b></p>
+<p style="margin-top:18mm">Under the guidance of</p>
+<p style="margin-top:5mm"><b>Arjun Sharma</b></p>
+<p style="margin-top:28mm">Department of Applied Mechanics<br>Indian Institute of Technology, Delhi<br>Hauz Khas<br>New Delhi–110 016</p>
+<p style="margin-top:8mm">November 2026</p>
+</div></div>
+
+<!-- ============ DECLARATION ============ -->
+<div class="page"><div class="content">
+<h1 class="fm">Declaration</h1>
+<p>We, <b>Ankit Kumar Modi &amp; Gaurav Waghmare</b>, declare that this report is our own work. Any use of Artificial Intelligence (AI) tools in the preparation of this report, including their use for generating, editing, summarising, analysing, coding, or otherwise assisting with content, has been appropriately disclosed in the Acknowledgements section. The acknowledgement identifies, as applicable, the AI tool(s) used and the nature and extent of their use.</p>
+<p>We take full responsibility for the accuracy, originality, integrity, and academic content of this report, including all material produced or modified with the assistance of AI tools.</p>
+<div class="sig">Signatures of Students<br>Date: __________________<br>Ankit Kumar Modi &amp; Gaurav Waghmare</div>
+</div><div class="pno">i</div></div>
+
+<!-- ============ SUPERVISOR ============ -->
+<div class="page"><div class="content">
+<h1 class="fm">Supervisor Certificate</h1>
+<p>I, <b>Arjun Sharma</b>, supervisor of <b>Ankit Kumar Modi &amp; Gaurav Waghmare</b>, hereby record my review status for the report entitled “TURBULENT FLOW BEHIND A FLAT PLATE MOUNTED NORMAL TO THE WALL”.</p>
+<p>Please tick the appropriate box:</p>
+<p><span class="box"></span>I have read the report.</p>
+<p><span class="box"></span>I have not read the report.</p>
+<p>Remarks:</p>
+<div class="sig" style="margin-top:38mm">Signature of Supervisor<br>Date: __________________<br>Arjun Sharma</div>
+</div><div class="pno">ii</div></div>
+
+<!-- ============ ACK ============ -->
+<div class="page"><div class="content">
+<h1 class="fm">Acknowledgements</h1>
+<p>We thank our supervisor, Prof. Arjun Sharma, for his guidance throughout the project, and in particular for directing the second half of the work towards the physics of the wall–plate junction. We also thank the Department of Applied Mechanics, IIT Delhi, for the computational facilities and the ANSYS Fluent licence.</p>
+<p><b>Use of AI tools.</b> An AI assistant (Claude, Anthropic) was used during this work as a step-by-step guide for setting up and checking the ANSYS Fluent simulations (meshing settings, solver settings, monitors and post-processing procedures), to write the Python scripts used for post-processing the exported data (boundary-layer integrals, grid-convergence index, vorticity circulation and skin-friction statistics, and plots), to suggest physical interpretations of the results, and to draft and edit the text of this report. ChatGPT (OpenAI) assisted with this revision by comparing the report with the saved project records, correcting descriptions of verification and post-processing, and preparing the revised document. Claude was used again in the final revision to re-check the reported numerical values, identify inconsistencies, prepare Figures 3.2 and 3.6 from the tabulated results, and typeset the final document. All simulations were run by the authors; the reported simulation data are the authors’ own. The authors are responsible for reviewing the analysis and final report.</p>
+</div><div class="pno">iii</div></div>
+
+<!-- ============ CONTRIBUTION ============ -->
+<div class="page"><div class="content">
+<h1 class="fm">Contribution of Authors</h1>
+<p>The work was carried out jointly by Ankit Kumar Modi and Gaurav Waghmare. This report presents their joint project on the wall–plate junction, including the simulation study, post-processing and interpretation of the results. The work is presented as a collective contribution without assigning separate tasks to either author.</p>
+</div><div class="pno">iv</div></div>
+
+<!-- ============ ABSTRACT ============ -->
+<div class="page"><div class="content">
+<h1 class="fm">Abstract</h1>
+<p>The turbulent flow in the corner formed by two flat plates joined at right angles (an L-shaped wall–plate junction, 460 mm long, Re<sub>L</sub> = 1.1 × 10<sup>6</sup>) is studied with steady RANS simulations (ANSYS Fluent, SST k–ω, y<sup>+</sup> &lt; 1). Compared with the mid-semester study, the domain, boundary conditions, mesh and solver were corrected. A three-grid study (0.53, 1.15 and 2.53 million cells, effective refinement ratio about 1.30) gives an estimated fine-grid GCI of 4.6% for the drag coefficient (C<sub>d</sub> = 0.0617). For the corner velocity magnitude the GCI is 2.7%, but the apparent order (4.2) exceeds the formal order; limiting it to 2 gives about 8%, comparable to the 4.4% medium-to-fine change. The wake monitor is not in the asymptotic convergence range. The blunt leading edge produces a stagnation region strongest at the inside corner and a separation bubble that reattaches 40–77 mm downstream. Vorticity contours and cross-flow vectors show a counter-rotating corner pair whose plate-side cell is 1.1–1.9 times stronger, consistent with mean-flow tilting near the leading edge. At intermediate stations, fluid moves towards the corner along both walls and away along the bisector, while high-momentum fluid is brought towards the walls 15–30 mm from the corner. Skin friction is 30–50% lower in the corner. The total unsigned circulation in the sampled window decreases by about 9.5 times between the first and last cross-planes, mostly within the first 130 mm. The limitations of SST for stress-induced secondary flow and of a contour-based mechanism interpretation are discussed.</p>
+</div><div class="pno">v</div></div>
+
+<!-- ============ CONTENTS ============ -->
+<div class="page"><div class="content toc">
+<h1 class="fm">Contents</h1>
+<p>1 Introduction and Literature Review ........................... 1</p>
+<p>2 Formulation and Methodology .................................. 2</p>
+<p>2.1 Geometry, model and mesh ................................ 2</p>
+<p>2.2 Analysis ................................................ 3</p>
+<p>3 Results and Discussion ........................................ 4</p>
+<p>3.1 Verification ............................................ 4</p>
+<p>3.2 Leading edge of the junction ............................ 5</p>
+<p>3.3 Boundary layers far from and near the junction .......... 6</p>
+<p>3.4 Vorticity at the corner ................................. 7</p>
+<p>3.5 Secondary flow and mixing in the corner ................. 10</p>
+<p>3.6 Wall shear stress ....................................... 11</p>
+<p>4 Conclusions and Future Work .................................. 12</p>
+<p>References ...................................................... 13</p>
+</div><div class="pno">vi</div></div>
+
+<!-- ============ LIST OF TABLES ============ -->
+<div class="page"><div class="content toc">
+<h1 class="fm">List of Tables</h1>
+<p>2.1 Settings before and after the mid-semester evaluation. ........ 2</p>
+<p>3.1 Three-grid study: final-200-iteration means and GCI. .......... 4</p>
+<p>3.2 Circulation in the sampled corner window. ..................... 8</p>
+</div><div class="pno">vii</div></div>
+
+<!-- ============ LIST OF FIGURES ============ -->
+<div class="page"><div class="content toc">
+<h1 class="fm">List of Figures</h1>
+<p>2.1 Geometry, domain, BOI, cross-planes and monitor points. ..... 2</p>
+<p>3.1 Monitor histories on the three grids. ........................ 4</p>
+<p>3.2 Grid convergence of the monitored quantities. ............... 5</p>
+<p>3.3 Mid-length boundary-layer and corner-bisector profiles. ..... 6</p>
+<p>3.4 Floor and plate vorticity components at z = 0. .............. 7</p>
+<p>3.5 Streamwise vorticity on four cross-planes. .................. 8</p>
+<p>3.6 Decay and asymmetry of the corner circulation. .............. 9</p>
+<p>3.7 Isovels and cross-flow vectors on four cross-planes. ........ 10</p>
+<p>3.8 Skin-friction distribution and comparison across the span. .. 11</p>
+</div><div class="pno">viii</div></div>
+
+<!-- ============ NOTATION ============ -->
+<div class="page"><div class="content">
+<h1 class="fm">Notation and Abbreviations</h1>
+<table class="t" style="font-size:10.5pt">
+<thead><tr><th style="width:34%">Symbol</th><th>Meaning</th></tr></thead>
+<tbody>
+<tr><td>x, y, z; u, v, w</td><td>Coordinates and mean velocity components; main flow in −z</td></tr>
+<tr><td>s; d; U</td><td>Streamwise distance from LE, s = 0.23 − z; wall-normal distance; velocity magnitude</td></tr>
+<tr><td>U<sub>∞</sub>; U<sub>e</sub>; L</td><td>Inlet velocity, 36 m/s; local edge speed; plate length, 460 mm</td></tr>
+<tr><td>ρ; μ; ν; p</td><td>Density, 1.225 kg/m³; dynamic viscosity; kinematic viscosity μ/ρ; static pressure</td></tr>
+<tr><td>Re<sub>L</sub>; Re<sub>s</sub></td><td>Reynolds numbers U<sub>∞</sub>L/ν and U<sub>∞</sub>s/ν</td></tr>
+<tr><td>δ<sub>99</sub>, δ*, θ, H</td><td>99% thickness, displacement and momentum thickness; H = δ*/θ</td></tr>
+<tr><td><b>ω</b>; ω<sub>x</sub>, ω<sub>y</sub>, ω<sub>z</sub></td><td>Vorticity vector ∇×<b>u</b> and its Cartesian components</td></tr>
+<tr><td>k; ω (in “k–ω” and residuals)</td><td>Turbulent kinetic energy; specific dissipation rate (not vorticity)</td></tr>
+<tr><td>I; μ<sub>t</sub>/μ</td><td>Turbulence intensity; turbulent viscosity ratio</td></tr>
+<tr><td>R<sub>ij</sub></td><td>Reynolds-stress tensor ⟨u′<sub>i</sub>u′<sub>j</sub>⟩</td></tr>
+<tr><td>Γ<sup>+</sup>, Γ<sup>−</sup></td><td>Integrals of positive and negative streamwise vorticity in the corner window</td></tr>
+<tr><td>C<sub>f</sub>; C<sub>d</sub>; A<sub>ref</sub></td><td>Skin-friction coefficient; drag coefficient; reference area 0.1472 m²</td></tr>
+<tr><td>y<sup>+</sup>; N; h; r; p</td><td>Viscous wall distance; cell count; (V/N)<sup>1/3</sup>; effective grid ratio; apparent order</td></tr>
+<tr><td>BOI; GCI</td><td>Body of influence; grid convergence index</td></tr>
+<tr><td>LE; TE; RANS; SST</td><td>Leading/trailing edge; Reynolds-averaged Navier–Stokes; shear-stress transport k–ω model</td></tr>
+</tbody></table>
+</div><div class="pno">ix</div></div>
+
+<!-- ============ CH 1 (p1) ============ -->
+<div class="page"><div class="content">
+<h1 class="ch">Chapter 1</h1>
+<h1 class="ct">Introduction and Literature Review</h1>
+<p>Wherever a body meets a wall—a wing on a fuselage, a fin on a hull, a pier on a river bed—the boundary layers of the two surfaces meet in a corner. This <i>junction flow</i> is three-dimensional: vortices form at the leading edge, cross-stream (secondary) motion appears along the corner, and the wall shear and drag there differ from those on either surface alone (Simpson, 2001). The project started from the experiment of Nakayama and Rahai (1984), who measured the mean and secondary velocities, Reynolds stresses and skin friction behind a flat plate mounted normal to a wall and found secondary motion that changes the wall shear near the junction.</p>
+<p>Turbulent secondary flows are of two kinds (Bradshaw, 1987). <i>Prandtl’s first kind</i> arises when existing vorticity is tilted by the mean flow associated with geometry and pressure gradients. The horseshoe vortex around a wing–body junction, with legs trailing along the corners, is a classic example (Simpson, 2001). The <i>second kind</i> is driven by Reynolds-stress anisotropy in a straight corner (Gessner, 1973) and is typically weak, about 1–3% of the main velocity. Vorticity is solenoidal, ∇·<b>ω</b> = 0, so vortex lines cannot end within the fluid (Saffman, 1992). This is a kinematic constraint, not by itself proof of a particular tilting mechanism or vortex-line connection. The SST k–ω model (Menter, 1994) is widely used for wall-bounded flows with separation, but its linear eddy-viscosity closure cannot represent the stress-anisotropy mechanism responsible for classical second-kind secondary motion (Pope, 2000).</p>
+<p>The mid-semester study was qualitative and unverified. The objectives of this phase were: (i) a corrected simulation of an L-shaped wall–plate junction, with iterative checks and a three-grid discretisation assessment (Celik et al., 2008); (ii) an interpretation of how the floor and plate boundary layers interact, using vorticity contours and secondary-flow vectors; and (iii) a quantitative comparison of the corner with regions far from it. The reference experiment provides qualitative context rather than a direct validation case because the incoming boundary layers differ.</p>
+</div><div class="pno">1</div></div>
+
+<!-- ============ CH 2 (p2) ============ -->
+<div class="page"><div class="content">
+<h1 class="ch" style="margin-top:6mm">Chapter 2</h1>
+<h1 class="ct">Formulation and Methodology</h1>
+<h2>2.1 Geometry, model and mesh</h2>
+<p>The L consists of a vertical plate and a floor plate, each 460 mm long, 320 mm wide and 10 mm thick, with square edges, inside a 2.0 × 0.60 × 0.50 m box. There is 0.77 m of free stream upstream and downstream. The inside corner runs along x = y = 0.01 m; LE and TE are at z = +0.23 and −0.23 m. Flow is in −z, with Re<sub>L</sub> = U<sub>∞</sub>L/ν = 1.13 × 10<sup>6</sup>. The lateral enclosure faces use symmetry conditions, replacing the mid-semester duct walls that accelerated the flow to 41.8 m/s.</p>
+<figure><img src="fig2_1.png"><figcaption>Figure 2.1: Geometry, domain, BOI, cross-planes and monitor points.</figcaption></figure>
+<table class="t">
+<thead><tr><th style="width:19%">Item</th><th style="width:33%">Mid-semester</th><th>Final</th></tr></thead>
+<tbody>
+<tr><td>Model</td><td>T-shape in small box</td><td>L-shaped junction</td></tr>
+<tr><td>Side faces</td><td>No-slip walls</td><td>Symmetry</td></tr>
+<tr><td>Inlet / outlet</td><td>36 m/s / 0 Pa</td><td>36 m/s, I = 1%, μ<sub>t</sub>/μ = 10 / 0 Pa</td></tr>
+<tr><td>Outlet backflow</td><td>Turbulence 10<sup>−14</sup></td><td>I = 5%, μ<sub>t</sub>/μ = 10</td></tr>
+<tr><td>Mesh</td><td>10 mm tetrahedral, no inflation</td><td>0.53–2.53 M cells, 25 prism layers</td></tr>
+<tr><td>Solver</td><td>SIMPLE, relaxation 0.1/0.2</td><td>Coupled, pseudo-transient, second order</td></tr>
+<tr><td>Verification</td><td>None</td><td>Monitor histories, mass balance, grid study</td></tr>
+</tbody></table>
+<div class="tcap">Table 2.1: Settings before and after the mid-semester evaluation. Air: ρ = 1.225 kg/m³, μ = 1.7894 × 10<sup>−5</sup> kg/(m s); SST k–ω; no-slip L surfaces (ANSYS Inc., 2024).</div>
+</div><div class="pno">2</div></div>
+
+<!-- ============ p3 ============ -->
+<div class="page"><div class="rh"><span>Chapter 2. Formulation and Methodology</span><span>3</span></div><div class="content">
+<p>The mesh uses tetrahedra and wall-adjacent prisms, with a 50 mm global size. Fine-grid face and BOI sizes are 5 and 12 mm. Inflation is specified on all eight L faces: 0.01 mm first layer, 25 layers and growth 1.2, giving a nominal total thickness of about 4.7 mm. At the junction this is the prescribed inflation, not evidence that every layer retains its nominal thickness through the corner. Only face and BOI sizes were changed between grids; inflation and global size remained fixed.</p>
+<p><b>Mesh quality.</b> The fine mesh contains 2,528,284 cells. Maximum/mean skewness are 0.800/0.216; minimum/mean orthogonal quality are about 0.0064/0.764. About 2,660 cells (0.1%) have orthogonal quality below 0.0156, at the outer free edge of the floor near x ≈ 0.318 m, away from the inside junction. The maximum aspect ratio is about 2,855 in the prism layers. These local defects remain a limitation despite acceptable global monitors and y<sup>+</sup>.</p>
+<p><b>Domain size.</b> The domain cross-section (0.30 m²) is blocked by about 2.1% by the two blunt 10 mm edges. The top symmetry plane lies about 80 mm above the free edge of the vertical plate, and the outlet is 0.77 m (1.7L) behind the TE. These distances are adequate for the corner flow over the plate, but they limit the accuracy of the far-wake values (Section 3.1).</p>
+<h2>2.2 Analysis</h2>
+<p>Let s = 0.23 − z be distance downstream from the LE, d the distance normal to a wall, and U = |<b>u</b>| the exported velocity magnitude; u, v and w remain Cartesian components. Drag on all eight L faces (pressure and viscous contributions) is projected along (0, 0, −1): C<sub>d</sub> = F<sub>D</sub>/(½ρU<sub>∞</sub>²A<sub>ref</sub>), with A<sub>ref</sub> = 0.46 × 0.32 = 0.1472 m², the side area of one plate. The corner and wake monitors are velocity magnitudes at (0.02, 0.02, 0) and (0.02, 0.02, −0.35) m.</p>
+<p>At z = 0, profiles normal to each wall lie 240 mm (far) or 10 mm (near) from the other wall; a fifth profile follows the bisector. For far profiles, U<sub>e</sub> is the mean for d &gt; 35 mm and δ<sub>99</sub> is interpolated at 0.99U<sub>e</sub>. The script integrates the sampled profile to d = 50 mm with q = min[1, max(0, U/U<sub>e</sub>)]: δ* = ∫(1 − q) dd and θ = ∫q(1 − q) dd. Thus these are finite-range, speed-based estimates; near profiles without a plateau are not assigned conventional thicknesses. Bisector distance is (x + y − 0.02)/√2.</p>
+<p>Cross-planes at z = +0.20, +0.10, 0 and −0.20 m correspond to s = 30, 130, 230 and 430 mm. Exported nodal fields are linearly interpolated onto a 241 × 241 grid over 0–60 mm from each inner wall. Positive and negative ω<sub>z</sub> are integrated separately over finite samples, excluding the first 2 mm next to either wall. Wall comparisons use corner (0–4 mm), downwash (15–30 mm) and reference (60–150 mm) bands. C<sub>f</sub> uses wall-shear magnitude divided by ½ρU<sub>∞</sub>²; the signed streamwise shear identifies reversal.</p>
+</div></div>
+
+<!-- ============ p4 ============ -->
+<div class="page"><div class="content">
+<h1 class="ch" style="margin-top:6mm">Chapter 3</h1>
+<h1 class="ct">Results and Discussion</h1>
+<h2>3.1 Verification</h2>
+<p>Over the final 200 iterations, drag half-range is ≤0.05% of its mean and velocity-monitor half-ranges are ≤0.9% (Figure 3.1). The fine-grid corner and wake values retain bounded oscillations, not a strictly steady fixed point. Fine-grid residuals plateau at approximately 3 × 10<sup>−3</sup> (continuity), 10<sup>−6</sup> (velocity), 1.5 × 10<sup>−3</sup> (k) and 3 × 10<sup>−4</sup> (ω, specific dissipation rate); not all meet the 10<sup>−6</sup> stopping criterion. Mass imbalance is below 2 × 10<sup>−4</sup>% on all grids, and maximum y<sup>+</sup> is 0.77–0.93.</p>
+<figure><img src="fig3_1.png"><figcaption>Figure 3.1: Monitor histories; shaded bands mark the final 200 iterations. The reference values were corrected during the fine-grid run; fine-grid C<sub>d</sub> before iteration 178 is rescaled to the corrected reference values.</figcaption></figure>
+<table class="t">
+<thead><tr><th style="width:27%">Grid; face / BOI (mm)</th><th>N (M)</th><th>h (mm)</th><th>C<sub>d</sub></th><th>U<sub>corner</sub></th><th>U<sub>wake</sub></th></tr></thead>
+<tbody>
+<tr><td>Coarse; 10.6 / 25.5</td><td>0.529</td><td>10.41</td><td>0.063731</td><td>33.195</td><td>28.569</td></tr>
+<tr><td>Medium; 7.3 / 17.5</td><td>1.150</td><td>8.04</td><td>0.062529</td><td>29.546</td><td>27.162</td></tr>
+<tr><td>Fine; 5.0 / 12.0</td><td>2.528</td><td>6.18</td><td>0.061649</td><td>28.304</td><td>25.600</td></tr>
+<tr><td>Medium-to-fine change</td><td>—</td><td>—</td><td>1.43%</td><td>4.4%</td><td>6.1%</td></tr>
+<tr><td>Apparent order p</td><td>—</td><td>—</td><td>1.25</td><td>4.2</td><td>Not reliable</td></tr>
+<tr><td>Extrapolated value</td><td>—</td><td>—</td><td>0.0594</td><td>27.69</td><td>—</td></tr>
+<tr><td>Fine-grid GCI</td><td>—</td><td>—</td><td>4.6%</td><td>2.7% (≈8% with p = 2)</td><td>Not defined</td></tr>
+</tbody></table>
+<div class="tcap">Table 3.1: Three-grid study: final-200-iteration means; velocities in m/s. Effective ratios r<sub>21</sub> ≈ 1.300 and r<sub>32</sub> ≈ 1.295.</div>
+</div><div class="pno">4</div></div>
+
+<!-- ============ p5 ============ -->
+<div class="page"><div class="rh"><span>Chapter 3. Results and Discussion</span><span>5</span></div><div class="content">
+<p>Drag changes by 1.43% from medium to fine, and the extrapolated value is 3.7% below the fine-grid value (Figure 3.2). GCI estimates are conditional because refinement is not uniform. For the corner monitor the medium-to-fine change is 4.4%; because the apparent order p = 4.2 exceeds the formal order of the scheme, the 2.7% GCI should be read as a lower bound, and limiting p to 2 (Roache, 1998) gives about 8%. Wake values decrease monotonically, but successive differences grow (1.407 to 1.562 m/s; ratio ≈ 1.11), so no reliable asymptotic GCI is obtained. Its 6.1% medium-to-fine difference is not a quantified uncertainty; the short outlet distance (Section 2.1) may contribute. Subsequent results use the fine grid.</p>
+<figure><img src="fig3_2.png"><figcaption>Figure 3.2: Final-200-iteration means versus effective cell size for the coarse (C), medium (M) and fine (F) grids. Dashed curves and squares show the Richardson extrapolation h → 0 (Celik et al., 2008). C<sub>d</sub> and U<sub>corner</sub> converge monotonically; U<sub>wake</sub> shows growing differences and has no asymptotic estimate.</figcaption></figure>
+<h2>3.2 Leading edge of the junction</h2>
+<p>The inlet total pressure is 819 Pa (794 Pa dynamic plus 25 Pa static). The node-averaged maximum pressure on the L is 837 Pa, 2% above the inlet total pressure. Since the static pressure cannot physically exceed the upstream total pressure, this overshoot is a local discretisation error at the sharp stagnation edge and indicates the numerical error there. Iso-surfaces place the largest stagnation region at the inside corner of the blunt front face, where both plates obstruct the oncoming fluid. The node-averaged peak speed is 1.24U<sub>∞</sub>; larger isolated cell peaks are not representative of the bulk flow. Acceleration around the square edges is followed by separation. Reversed floor shear persists 70–77 mm downstream from the LE far from the plate but only 40–50 mm within 30 mm of it (Figure 3.8a).</p>
+</div></div>
+
+<!-- ============ p6 ============ -->
+<div class="page"><div class="rh"><span>Chapter 3. Results and Discussion</span><span>6</span></div><div class="content">
+<h2>3.3 Boundary layers far from and near the junction</h2>
+<p>Far from the junction the boundary layers are alike at mid-length: δ<sub>99</sub> = 25.6 and 26.0 mm, δ* = 6.12 and 6.34 mm, θ = 3.69 and 3.86 mm, and H = 1.66 and 1.64 for floor and plate respectively. These thicknesses exceed the flat-plate estimate 0.37s Re<sub>s</sub><sup>−1/5</sup> ≈ 6 mm at s = 0.23 m (Schlichting and Gersten, 2017). H exceeds the equilibrium value 1.3–1.4, consistent with recovery after leading-edge separation. U<sub>e</sub> ≈ 37.4 m/s is about 4% above the inlet speed. This speed-up is consistent with the combined blockage of the blunt edges (2.1% of the domain cross-section) and of the displacement thickness on the four wetted faces (about 1.28 m × 6.2 mm ≈ 2.6%).</p>
+<figure><img src="fig3_3.png"><figcaption>Figure 3.3: Velocity-magnitude profiles at mid-length, far from (240 mm) and near (10 mm) the other wall, and along the corner bisector. The plotted u denotes speed U, not the Cartesian x-component.</figcaption></figure>
+<p>Near-corner profiles are fuller close to the wall: about 28.4 m/s at d = 10 mm compared with 26.0–26.7 m/s far away. They do not reach an independent outer plateau because they remain in the other wall’s boundary layer. Along the bisector, 99% of U<sub>e</sub> is reached at 27.3 mm, versus the geometric scale √2δ<sub>99</sub> ≈ 36 mm. This point is only 27.3/√2 ≈ 19 mm from each wall, less than δ<sub>99</sub>, so the corner region carries more momentum than either boundary layer alone would suggest. This comparison is consistent with momentum redistribution by the secondary flow (Section 3.5), but is not a rigorous superposition model.</p>
+</div></div>
+
+<!-- ============ p7 ============ -->
+<div class="page"><div class="rh"><span>Chapter 3. Results and Discussion</span><span>7</span></div><div class="content">
+<h2>3.4 Vorticity at the corner</h2>
+<p>The floor boundary layer carries ω<sub>x</sub> &lt; 0 and the plate boundary layer ω<sub>y</sub> &gt; 0, with wall magnitudes of order 10<sup>5</sup> s<sup>−1</sup>. At z = 0, the ω<sub>x</sub> layer thins towards the plate and the ω<sub>y</sub> layer weakens towards the floor (Figure 3.4). This shows interaction between the two wall-vorticity distributions, but contours alone do not trace connected vortex lines.</p>
+<figure style="width:88%;margin-left:auto;margin-right:auto"><img src="fig3_4.png"><figcaption>Figure 3.4: Floor-associated ω<sub>x</sub> and plate-associated ω<sub>y</sub> at z = 0. The ±3,000 s<sup>−1</sup> plotting range resolves the outer layers and does not represent the much larger wall extrema.</figcaption></figure>
+<p>For incompressible mean flow, the streamwise vorticity equation may be written schematically as</p>
+<div class="eq"><div class="body">(<b>u</b>·∇)ω<sub>z</sub> = ω<sub>x</sub> ∂w/∂x + ω<sub>y</sub> ∂w/∂y + ω<sub>z</sub> ∂w/∂z + ν∇²ω<sub>z</sub> − [∇×(∇·<b>R</b>)]<sub>z</sub>,</div><div class="n">(3.1)</div></div>
+<p>where R<sub>ij</sub> = ⟨u′<sub>i</sub>u′<sub>j</sub>⟩ is the time-averaged Reynolds-stress tensor. The first two right-hand terms represent tilting, the third stretching, and the remaining terms viscous and turbulent-stress contributions. Independently, ∇·<b>ω</b> = 0 implies ∂ω<sub>z</sub>/∂z = −(∂ω<sub>x</sub>/∂x + ∂ω<sub>y</sub>/∂y).</p>
+<p>The solenoidal condition constrains the spatial field but does not establish which transport term in Eq. (3.1) creates the corner vorticity. A term-by-term budget or vortex-line/pathline analysis was not performed. The interpretation of leading-edge tilting is therefore based on the joint evidence of vorticity, separation and cross-flow, rather than a measured transport balance.</p>
+</div></div>
+
+<!-- ============ p8 ============ -->
+<div class="page"><div class="rh"><span>Chapter 3. Results and Discussion</span><span>8</span></div><div class="content">
+<figure><img src="fig3_5.png"><figcaption>Figure 3.5: Streamwise vorticity at z = +0.20, +0.10, 0 and −0.20 m (s = 30, 130, 230 and 430 mm). Colour limits are ±300 s<sup>−1</sup>; leading-edge extremes exceed this range.</figcaption></figure>
+<p>Inside the leading-edge separation bubble (z = +0.20 m), ω<sub>z</sub> is strong and patchy. Farther downstream, positive vorticity remains predominantly beside the plate and negative vorticity above the floor, centred roughly 5–20 mm from the walls. The topology is consistent with a counter-rotating pair, but the two signed circulations are unequal, particularly at z = +0.10 m; the flow should not be described as quantitatively symmetric.</p>
+<table class="t">
+<thead><tr><th>z (m)</th><th>s (mm)</th><th>Γ<sup>+</sup></th><th>Γ<sup>−</sup></th><th>Γ<sup>+</sup> + |Γ<sup>−</sup>|</th><th>Γ<sup>+</sup>/|Γ<sup>−</sup>|</th></tr></thead>
+<tbody>
+<tr><td>+0.20</td><td>30</td><td>160.4</td><td>−144.7</td><td>305.1</td><td>1.11</td></tr>
+<tr><td>+0.10</td><td>130</td><td>53.0</td><td>−28.6</td><td>81.6</td><td>1.85</td></tr>
+<tr><td>0</td><td>230</td><td>29.3</td><td>−19.4</td><td>48.7</td><td>1.51</td></tr>
+<tr><td>−0.20</td><td>430</td><td>18.2</td><td>−14.1</td><td>32.3</td><td>1.29</td></tr>
+</tbody></table>
+<div class="tcap">Table 3.2: Signed and total unsigned circulation, in 10<sup>−3</sup> m²/s, from the same 60 × 60 mm window with the 2 mm wall strips excluded.</div>
+<p style="margin-top:9pt">Across the sampled planes, positive circulation falls by 160.4/18.2 ≈ 8.8 times and negative-circulation magnitude by 144.7/14.1 ≈ 10.3 times. Their sum falls by 305.1/32.3 ≈ 9.5 times. These are changes between s = 30 and 430 mm, not measurements exactly at the LE and TE.</p>
+</div></div>
+
+<!-- ============ p9 ============ -->
+<div class="page"><div class="rh"><span>Chapter 3. Results and Discussion</span><span>9</span></div><div class="content">
+<figure><img src="fig3_6.png"><figcaption>Figure 3.6: (a) Signed and total circulation in the 60 × 60 mm corner window versus distance from the leading edge (logarithmic scale). (b) Ratio Γ<sup>+</sup>/|Γ<sup>−</sup>|; the dashed line marks equal strength.</figcaption></figure>
+<p>Figure 3.6 shows that most of the reduction occurs between s = 30 and 130 mm (a factor of 3.7 in total circulation), where the leading-edge separation bubble reattaches (Section 3.2); between s = 130 and 430 mm the total falls by a further factor of only 2.5. The plate-side cell (Γ<sup>+</sup>) is stronger at every station (Γ<sup>+</sup>/|Γ<sup>−</sup>| = 1.11–1.85). This is consistent with the shorter floor separation bubble near the plate and with the asymmetric skin-friction enhancement in Section 3.6.</p>
+<p>The downstream reduction is consistent with weakening and redistribution of leading-edge-generated vorticity. Diffusion may contribute, but flux through the finite window, convection, stretching and tilting have not been separated. The result therefore supports a leading-edge-related, first-kind secondary-flow interpretation without proving that turbulent diffusion alone causes the decay.</p>
+</div></div>
+
+<!-- ============ p10 ============ -->
+<div class="page"><div class="rh"><span>Chapter 3. Results and Discussion</span><span>10</span></div><div class="content">
+<h2>3.5 Secondary flow and mixing in the corner</h2>
+<p>Figure 3.7 shows the cross-flow associated with the corner pair. At z = +0.10 m and 0, vectors within approximately 3 mm of each wall point towards the corner (0.1–0.46 m/s), while vectors along the bisector point away from it (0.07–0.28 m/s). Low-momentum fluid is swept along the walls into the corner and lifted along the bisector. On the outer side of each cell, faster fluid is brought towards the wall about 15–30 mm from the corner. The floor-side circulation has the same sense as a horseshoe-vortex leg (Simpson, 2001). The bisector outflow is weak and confined close to the corner; over the corner region as a whole the high-momentum downwash on either side dominates, which is why the near-corner profiles in Figure 3.3 are fuller than the far profiles.</p>
+<figure><img src="fig3_7.png"><figcaption>Figure 3.7: Isovels (black, m/s) and cross-flow vectors on the four planes. The first panel uses a 2 m/s reference arrow; the others use 0.3 m/s. Vector lengths must be compared with their own reference scale.</figcaption></figure>
+<p>The isovels bend towards the walls beside the corner, consistent with the fuller near-wall profiles in Figure 3.3 and the shorter bisector distance to 99% of the edge speed. High-momentum transport is towards the walls on the downwash sides of the cells; it is not directed into the corner along the bisector, where the intermediate-plane vectors point outward.</p>
+<p>At z = +0.20 m the maximum cross-flow in the sampled window is about 3.5 m/s (nearly 10% of U<sub>∞</sub>) and is dominated by outward displacement from the blunt leading edge. At z = −0.20 m the cross-flow converges towards the walls ahead of the trailing edge. Thus the intermediate-plane circulation pattern should not be extrapolated unchanged to every streamwise station.</p>
+<p>These velocity and vorticity fields demonstrate mean momentum redistribution. They do not quantify turbulent mixing rates or resolve unsteady vortex shedding; the calculation is steady RANS, and the remaining iterative oscillations are not a physical time history.</p>
+</div></div>
+
+<!-- ============ p11 ============ -->
+<div class="page"><div class="rh"><span>Chapter 3. Results and Discussion</span><span>11</span></div><div class="content">
+<h2>3.6 Wall shear stress</h2>
+<p>The secondary flow leaves a clear imprint on skin friction (Figure 3.8). Within 4 mm of the corner, C<sub>f</sub> is about 30–50% lower than in the reference band 60–150 mm away. For example, on the floor at z = +0.10 m it is 1.05 × 10<sup>−3</sup>, compared with 2.16 × 10<sup>−3</sup> in the reference band. Part of this reduction is geometric: the velocity gradient, and hence the wall shear, vanishes towards a 90° corner because both walls retard the flow. The secondary flow modifies the distribution around this, sweeping low-momentum fluid along the walls into the corner and producing the downwash band of increased C<sub>f</sub>.</p>
+<figure><img src="fig3_8.png"><figcaption>Figure 3.8: (a) Skin-friction magnitude on the inside floor, with signed-shear reversal marked; (b) C<sub>f</sub> versus distance from the other wall at three stations. Solid lines represent the floor and dashed lines the plate.</figcaption></figure>
+<p>In the 15–30 mm downwash band, the floor C<sub>f</sub> is 2.86 × 10<sup>−3</sup> at z = +0.10 m, 32% above the reference-band mean; the plate increase there is about 13%. The floor enhancement declines to approximately 12% at z = 0 and 8% at z = −0.20 m, while the corresponding plate changes are about 0% and 2%. These differences are consistent with the unequal vortex strengths (Figure 3.6b). Away from the corner, C<sub>f</sub> increases downstream as the boundary layer recovers after separation.</p>
+<p><b>Relation to the reference experiment.</b> In Nakayama and Rahai (1984), a developed wall boundary layer arrives from upstream. Here both wall boundary layers start at the same blunt LE. The comparison is therefore qualitative: both flows show streamwise corner vorticity, momentum redistribution and local wall-shear changes. Agreement of these trends does not establish quantitative validation against that experiment.</p>
+</div></div>
+
+<!-- ============ p12 ============ -->
+<div class="page"><div class="content">
+<h1 class="ch" style="margin-top:6mm">Chapter 4</h1>
+<h1 class="ct">Conclusions and Future Work</h1>
+<ol class="concl">
+<li>1. The corrected L-junction RANS model satisfies y<sup>+</sup> &lt; 1 and global mass balance, with bounded final-iteration monitor variation. The fine-grid drag coefficient is C<sub>d</sub> = 0.06165; its estimated discretisation GCI is 4.6% and the extrapolated value is 3.7% lower. The corner-speed GCI is 2.7%, but this relies on an apparent order (4.2) above the formal order; limiting the order to 2 gives about 8%, comparable to the 4.4% medium-to-fine change. These are discretisation estimates, not total uncertainties or experimental validation.</li>
+<li>2. The wake-monitor velocity decreases monotonically from coarse to fine, but grid differences do not contract. The 6.1% medium-to-fine difference is a sensitivity measure, not a reliable uncertainty estimate; further local refinement and a longer downstream domain are needed for a converged wake value.</li>
+<li>3. The blunt LE produces the strongest stagnation region at the inside corner and a shorter separation bubble near the junction (40–50 mm) than far from it (70–77 mm). The mid-length layers remain much thicker than an equilibrium flat-plate estimate.</li>
+<li>4. Vorticity contours and cross-flow vectors indicate a counter-rotating corner pair with unequal strengths; the plate-side cell is 1.1–1.9 times stronger at every station. The total unsigned circulation in the sampled window decreases about 9.5 times between s = 30 and 430 mm, by a factor of 3.7 already within the first 130 mm. Leading-edge tilting is a plausible interpretation; neither a complete vorticity budget nor vortex-line connectivity was demonstrated.</li>
+<li>5. At intermediate stations, low-momentum fluid moves towards the corner along the walls and away along the bisector, while faster fluid moves towards the walls 15–30 mm away, so that the corner region as a whole is fuller than either boundary layer alone. Corner skin friction is 30–50% lower than the reference band, partly for geometric reasons; the adjacent floor enhancement reaches 32% and diminishes downstream.</li>
+</ol>
+<p class="note" style="margin-top:4pt"><b>Limitations and future work.</b> SST does not represent the Reynolds-stress-anisotropy mechanism of second-kind corner flow. Cross-flow is about 10% of U<sub>∞</sub> near the LE but of order 1% downstream, where this model limitation matters more. Model-form and discretisation errors are separate. The domain has an outlet only 1.7L behind the TE and a top boundary about 80 mm above the plate edge, and about 0.1% of cells have low orthogonal quality at the outer floor edge. Future work includes an SST corner-flow correction or Reynolds-stress model, refinement of the corner wake with a longer downstream domain, pathlines, vortex lines and wake-recovery profiles, a pressure/viscous decomposition of the drag, an incoming wall boundary layer for closer experimental comparison, and the NACA 0010 wing–body junction. These extensions were not carried out in the present study.</p>
+</div><div class="pno">12</div></div>
+
+<!-- ============ REFS ============ -->
+<div class="page"><div class="content ref">
+<h1 class="fm">References</h1>
+<p>ANSYS Inc. (2024). <i>Ansys Fluent Theory Guide, Release 2024 R1.</i> ANSYS Inc., Canonsburg, PA.</p>
+<p>Bradshaw, P. (1987). Turbulent secondary flows. <i>Annual Review of Fluid Mechanics</i>, 19:53–74.</p>
+<p>Celik, I. B., Ghia, U., Roache, P. J., Freitas, C. J., Coleman, H., and Raad, P. E. (2008). Procedure for estimation and reporting of uncertainty due to discretization in CFD applications. <i>Journal of Fluids Engineering</i>, 130(7):078001.</p>
+<p>Gessner, F. B. (1973). The origin of secondary flow in turbulent flow along a corner. <i>Journal of Fluid Mechanics</i>, 58(1):1–25.</p>
+<p>Menter, F. R. (1994). Two-equation eddy-viscosity turbulence models for engineering applications. <i>AIAA Journal</i>, 32(8):1598–1605.</p>
+<p>Nakayama, A. and Rahai, H. R. (1984). Measurements of turbulent flow behind a flat plate mounted normal to the wall. <i>AIAA Journal</i>, 22(12):1817–1819.</p>
+<p>Pope, S. B. (2000). <i>Turbulent Flows.</i> Cambridge University Press, Cambridge.</p>
+<p>Roache, P. J. (1998). <i>Verification and Validation in Computational Science and Engineering.</i> Hermosa Publishers, Albuquerque, NM.</p>
+<p>Saffman, P. G. (1992). <i>Vortex Dynamics.</i> Cambridge University Press, Cambridge.</p>
+<p>Schlichting, H. and Gersten, K. (2017). <i>Boundary-Layer Theory.</i> Springer, Berlin, 9th edition.</p>
+<p>Simpson, R. L. (2001). Junction flows. <i>Annual Review of Fluid Mechanics</i>, 33:415–443.</p>
+</div><div class="pno">13</div></div>
+
+</body></html>
